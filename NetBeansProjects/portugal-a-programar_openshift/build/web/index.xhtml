@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Demo 1</title>
+    </h:head>
+    <h:body>
+        
+        <ui:include src="/menu.xhtml"></ui:include>
+        
+        <h:form>
+            <p:panel id="panel" header="Demo - http://www.primefaces.org/showcase/ui/ajax/validation.xhtml">
+                <p:messages id="msgs" />
+                <h:panelGrid columns="3" cellpadding="5">
+                    <p:outputLabel for="name" value="Insira o seu nome:" />
+                    <p:inputText id="name" value="#{welcomeView.name}" required="true" label="name">
+                        <f:validateLength minimum="2" />
+                    </p:inputText>
+                    <p:message for="name" display="icon" />
+                </h:panelGrid>
+                <p:commandButton value="Submeter" update="panel" actionListener="#{welcomeView.welcome}" icon="ui-icon-check" />
+            </p:panel>
+        </h:form>
+
+    </h:body>
+</html>
+
